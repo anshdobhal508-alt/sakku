@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Sakku ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6e7,#fff5f8);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+overflow:hidden;
+}
+
+.container{
+background:white;
+width:380px;
+max-width:90%;
+padding:35px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+position:relative;
+}
+
+h1{
+color:#ff4d79;
+margin-bottom:15px;
+}
+
+p{
+font-size:22px;
+line-height:1.6;
+color:#444;
+}
+
+button{
+margin:15px;
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+.yes{
+background:#ff4d79;
+color:white;
+}
+
+.no{
+background:#ddd;
+}
+
+.yes:hover{
+transform:scale(1.08);
+}
+
+.no:hover{
+transform:scale(1.08);
+}
+
+.loader{
+width:60px;
+height:60px;
+border:6px solid #ffd3df;
+border-top:6px solid #ff4d79;
+border-radius:50%;
+margin:25px auto;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+.heart{
+position:fixed;
+bottom:-50px;
+font-size:25px;
+animation:float 6s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) scale(.5);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-110vh) scale(1.3);
+opacity:0;
+}
+
+}
+@keyframes pop{
+
+0%{
+transform:scale(.7);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💌 Hey Sakku</h1>
+
+<p>
+Before you continue...
+<br><br>
+Answer one question honestly 🥺
+<br><br>
+
+<b>Do you love me? ❤️</b>
+</p>
+
+<button class="yes">YES 💙</button>
+
+<button class="no">NO 🤭</button>
+
+</div>
+
+<script>
+document.querySelector(".no").onclick=function(){
+
+alert("❌ Option expired on 25 July 2026 😂❤️");
+
+}
+
+document.querySelector(".yes").onclick=function(){
+
+let music=new Audio("music.mp3");
+music.play();
+setInterval(()=>{
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(4+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),7000);
+
+},350);
+
+document.querySelector(".container").innerHTML=`
+
+<div style="animation:fade 1.5s ease;">
+
+<h1>💌 Loading something made with love...</h1>
+
+<div class="loader"></div>
+
+<p>Please wait... 🥹</p>
+
+</div>
+
+`;
+
+setTimeout(function(){
+
+document.querySelector(".container").innerHTML=`
+
+<div style="animation:fade 1s;">
+
+<h1>🥹 I knew you'd press YES ❤️</h1>
+
+<img src="note.png"
+style="
+width:80%;
+max-width:500px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,105,180,.4);
+animation:pop .8s ease;
+">
+
+</p>
+
+</div>
+
+`;
+
+},3000);
+
+}
+
+</script>
+
+</body>
+
+</html>
